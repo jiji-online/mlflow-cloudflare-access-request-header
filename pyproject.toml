@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "mlflow-cloudflare-access-request-header"
+version = "1.0.0"
+description = "Inject CF-Access-Client-* request headers"
+authors = ["Jiji Online"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+environs = {version="*", optional=true}
+
+[tool.poetry.extras]
+environs = ["environs"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.plugins."mlflow.request_header_provider"]
+provider = "mlflow_cloudflare_access_request_header:CloudflareAccessRequestHeaderProvider"
